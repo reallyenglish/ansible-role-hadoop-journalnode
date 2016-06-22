@@ -5,7 +5,6 @@ sleep 30
 
 package = 'hadoop2'
 service = 'journalnode'
-config  = '/etc/hadoop_journalnode/hadoop_journalnode.conf'
 user    = 'hdfs'
 group   = 'hadoop'
 ports   = [ 8485, 8480 ]
