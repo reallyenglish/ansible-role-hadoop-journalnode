@@ -1,0 +1,7 @@
+hadoop_journalnode_user: hadoop_journalnode
+hadoop_journalnode_group: hadoop_journalnode
+hadoop_journalnode_log_dir: /var/log/hadoop_journalnode
+hadoop_journalnode_db_dir: "{{ __hadoop_journalnode_db_dir }}"
+hadoop_journalnode_service: hadoop_journalnode
+hadoop_journalnode_conf: "{{ __hadoop_journalnode_conf }}"
+hadoop_journalnode_flags: ""

@@ -1,0 +1,6 @@
+---
+
+- name: Restart hadoop_journalnode_config
+  service:
+    name: hadoop_journalnode
+    state: restarted

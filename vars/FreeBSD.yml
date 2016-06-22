@@ -1,0 +1,2 @@
+__hadoop_journalnode_db_dir: /var/db/hadoop_journalnode
+__hadoop_journalnode_conf: /usr/local/etc/hadoop_journalnode.conf

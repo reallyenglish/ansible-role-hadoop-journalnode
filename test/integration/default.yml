@@ -1,0 +1,5 @@
+- hosts: localhost
+  roles:
+    - ansible-role-hadoop_journalnode
+  vars:
+    hadoop_journalnode_config: ""
