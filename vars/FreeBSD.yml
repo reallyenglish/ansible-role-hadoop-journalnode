@@ -1,2 +1,3 @@
-__hadoop_journalnode_db_dir: /var/db/hadoop_journalnode
-__hadoop_journalnode_conf: /usr/local/etc/hadoop_journalnode.conf
+__hadoop_journalnode_user: hdfs
+__hadoop_journalnode_group: hadoop
+__hadoop_conf_dir: /usr/local/etc/hadoop
