@@ -11,9 +11,28 @@ None
 Role Variables
 --------------
 
-| variable | description | default |
+| Variable | Description | Default |
 |----------|-------------|---------|
+| hadoop\_journalnode\_user | journalnode user | {{ \_\_hadoop\_journalnode\_user }} |
+| hadoop\_journalnode\_group | journalnode group | {{ \_\_hadoop\_journalnode\_group }} |
+| hadoop\_journalnode\_log\_dir | log dir | /var/log/hadoop |
+| hadoop\_journalnode\_service | service name | journalnode |
+| hadoop\_journalnode\_db\_dir | dfs.journalnode.edits.dir | /var/db/journalnode |
+| hadoop\_conf\_dir | path to xml configs | {{ \_\_hadoop\_conf\_dir }} |
+| hadoop\_core\_site\_file | core-site.xml | {{ hadoop\_conf\_dir }}/core-site.xml |
+| hadoop\_hdfs\_site\_file | hdfs-site.xml | {{ hadoop\_conf\_dir }}/hdfs-site.xml |
+| hadoop\_mapred\_site\_file | mapred-site.xml | {{ hadoop\_conf\_dir }}/mapred-site.xml |
+| hadoop\_yarn\_site\_file | yarn-site.xml | {{ hadoop\_conf\_dir }}/yarn-site.xml |
+| hadoop\_config | a hash of config XML | {} |
 
+FreeBSD
+=======
+
+| Variable | Default |
+|----------|---------|
+| \_\_hadoop\_journalnode\_user | hdfs |
+| \_\_hadoop\_journalnode\_group | hadoop |
+| \_\_hadoop\_conf\_dir | /usr/local/etc/hadoop |
 
 Dependencies
 ------------
