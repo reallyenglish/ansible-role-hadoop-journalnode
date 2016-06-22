@@ -1,6 +1,6 @@
 ---
 
-- name: Install hadoop_journalnode
+- name: Install hadoop
   pkgng:
-    name: hadoop_journalnode
+    name: hadoop2
     state: present

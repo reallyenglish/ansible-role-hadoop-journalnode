@@ -13,7 +13,7 @@
     owner: "{{ hadoop_journalnode_user }}"
     group: "{{ hadoop_journalnode_group }}"
     state: directory
-  notify: Restart hadoop_journalnode
+  notify: Restart journalnode
 
 - name: Create db directory
   file:
@@ -22,15 +22,11 @@
     owner: "{{ hadoop_journalnode_user }}"
     group: "{{ hadoop_journalnode_group }}"
     state: directory
-  notify: Restart hadoop_journalnode
+  notify: Restart journalnode
 
-- name: Create hadoop_journalnode.conf
-  template:
-    src: hadoop_journalnode.conf.j2
-    dest: "{{ hadoop_journalnode_conf }}"
-  notify: Restart hadoop_journalnode
+- include: configure-xml.yml
 
-- name: Start hadoop_journalnode
+- name: Start journalnode
   service:
     name: "{{ hadoop_journalnode_service }}"
     enabled: true
