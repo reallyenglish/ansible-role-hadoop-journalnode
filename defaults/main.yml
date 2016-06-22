@@ -1,7 +1,12 @@
-hadoop_journalnode_user: hadoop_journalnode
-hadoop_journalnode_group: hadoop_journalnode
-hadoop_journalnode_log_dir: /var/log/hadoop_journalnode
-hadoop_journalnode_db_dir: "{{ __hadoop_journalnode_db_dir }}"
-hadoop_journalnode_service: hadoop_journalnode
-hadoop_journalnode_conf: "{{ __hadoop_journalnode_conf }}"
-hadoop_journalnode_flags: ""
+hadoop_journalnode_user: "{{ __hadoop_journalnode_user }}"
+hadoop_journalnode_group: "{{ __hadoop_journalnode_group }}"
+hadoop_journalnode_log_dir: /var/log/hadoop
+hadoop_journalnode_service: journalnode
+hadoop_journalnode_db_dir: /var/db/journalnode
+
+hadoop_conf_dir: "{{ __hadoop_conf_dir }}"
+hadoop_core_site_file: "{{ hadoop_conf_dir }}/core-site.xml"
+hadoop_hdfs_site_file: "{{ hadoop_conf_dir }}/hdfs-site.xml"
+hadoop_mapred_site_file: "{{ hadoop_conf_dir }}/mapred-site.xml"
+hadoop_yarn_site_file: "{{ hadoop_conf_dir }}/yarn-site.xml"
+hadoop_config: {}
