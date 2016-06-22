@@ -1,5 +1,29 @@
 - hosts: localhost
   roles:
-    - ansible-role-hadoop_journalnode
+    - ansible-role-hadoop-journalnode
+  pre_tasks:
+    # XXX java.net.InetAddress.getLocalHost throws an exception without this
+    - shell: echo "127.0.0.1 localhost {{ ansible_hostname }}" > /etc/hosts
+      changed_when: False
+    # XXX the latest haddop2, with "status" patches, is not available in the official repo
+    - shell: mkdir -p /usr/local/etc/pkg/repos
+      when: "{{ ansible_os_family == 'FreeBSD' }}"
+      changed_when: false
+    - shell: "echo 'FreeBSD: { enabled:  no }' > /usr/local/etc/pkg/repos/FreeBSD.conf"
+      when: "{{ ansible_os_family == 'FreeBSD' }}"
+      changed_when: false
+    - shell: "echo 'reallyenglish: { url: \"pkg+http://10.3.build.reallyenglish.com/${ABI}\", mirror_type: \"srv\", signature_type: \"none\", enabled:  yes }' > /usr/local/etc/pkg/repos/reallyenglish.conf"
+      when: "{{ ansible_os_family == 'FreeBSD' }}"
+      changed_when: false
   vars:
-    hadoop_journalnode_config: ""
+    hadoop_config:
+      core_site: []
+      hdfs_site:
+        -
+          - name: dfs.nameservices
+          - value: mycluster
+        -
+          - name: dfs.journalnode.edits.dir
+          - value: "{{ hadoop_journalnode_db_dir }}"
+      yarn_site: []
+      mapred_site: []
