@@ -1,6 +1,8 @@
 require 'spec_helper'
 require 'serverspec'
 
+sleep 30
+
 package = 'hadoop2'
 service = 'journalnode'
 config  = '/etc/hadoop_journalnode/hadoop_journalnode.conf'
