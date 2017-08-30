@@ -1,24 +1,24 @@
-require 'spec_helper'
-require 'serverspec'
+require "spec_helper"
+require "serverspec"
 
 sleep 30
 
-package = 'hadoop2'
-service = 'journalnode'
-user    = 'hdfs'
-group   = 'hadoop'
-ports   = [ 8485, 8480 ]
-log_dir = '/var/log/hadoop'
-db_dir  = '/var/lib/journalnode'
+package = "hadoop2"
+service = "journalnode"
+user    = "hdfs"
+group   = "hadoop"
+ports   = [8485, 8480]
+log_dir = "/var/log/hadoop"
+db_dir  = "/var/lib/journalnode"
 
 case os[:family]
-when 'freebsd'
-  db_dir = '/var/db/journalnode'
+when "freebsd"
+  db_dir = "/var/db/journalnode"
 end
 
 describe package(package) do
   it { should be_installed }
-end 
+end
 
 describe file(log_dir) do
   it { should exist }
